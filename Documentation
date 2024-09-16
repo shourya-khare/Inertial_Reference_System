@@ -1,0 +1,31 @@
+# Initial Proposal
+
+(This project seeks to explore and develop methods to create an IRS from my mobile accelerometer, magnetometer and gyroscope data (cred:_phyphox_) and gauge their accuracy. Instead of hopping straight to developing an IRS with both position and orientation calculations, we have decided to break it down into parts. We start with gauging the object orientation.)
+
+**Utilising Magnetometer, Accelerometer and Gyroscope sensors to gauge the orientation in space of subject body**
+
+_Shourya Khare_
+
+    The aim of the project is to import magnetometer and accelerometer data ONLY and use them to gauge our current orientation (roll, pitch and yaw).
+
+    We later intend to use gyroscope data to refine our program furthur.
+
+    Future Exploration: 
+        Calculating change in position from this data in addition to the orientation, thereby forming an INS (Inertial Navigation System). I would like to explore involvement of radio aids to navigation with INS in providing furthur refined position and orientation.
+
+# Introduction
+
+The directory, "Orientation_1" carries accelerometer and magnetometer data for orientation changes to the smartphone sensor with minimal position changes.
+
+"orientation.ipynb" seeks to use this data to calculate the current orientation from this data.
+
+ipynb is being utilised to script and visualise solutions, I intend to adapt the solutions to C++ or another better suited language, with hopes of deploying it in an Arduino/RaspberryPi circuit board with required sensors.
+
+*orientation.ipynb*
+
+    The natural solution is to use the changes in overall directions of the accelerometer reading vector and magnetometer reading vector respectively to find the change in orientation.
+
+    1. I noticed, two readings are available for magnetometer - calibrated and raw. Calibrated readings are adjusted for the distortions in readings (magnetic deviation) caused by the smartphone's components. We are using the calibrated magnetometer data for our trials.
+    2. Kalman filtering and sensor fusion are two methods to improve our approach we shall explore soon.
+
+    !Our sensors are not in sync.
